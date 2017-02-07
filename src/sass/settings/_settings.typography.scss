@@ -1,0 +1,38 @@
+// ------------
+// SETTINGS.
+// TYPOGRAPHY
+// ------------
+
+// By using these variable your are able to amend the typography of the website with ease.
+// e.g. font-family: $sans-serif;
+// ---------------------
+
+
+// Font Family settings
+// --------------------
+$sans-serif: 'Source Sans Pro', Arial, sans-serif;
+$serif: Georgia, "Times New Roman", serif;
+
+// Font Sizes
+// ---------------------
+$base-font-size: 16px;
+$small-font-size: 80%;
+$blockquote-size: 20px;
+$h1: 48px;
+$h2: 36px;
+$h3: 24px;
+$h4: 20px;
+$h5: 18px;
+$h6: $base-font-size;
+
+// Line Heights
+// ---------------------
+$base-line-height: 1.6;
+$header-line-height: 1.4;
+
+// Font weight variables
+// ---------------------
+$weight-light: 300;
+$weight-normal: 400;
+$weight-semi-bold: 600;
+$weight-bold: 700;

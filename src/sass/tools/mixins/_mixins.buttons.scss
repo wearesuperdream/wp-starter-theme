@@ -1,0 +1,38 @@
+// ------------
+// MIXINS.
+// MEDIA QUERIES
+// ------------
+// [!]DEPENDENCIES:
+// settings.buttons.scss
+// ------------
+
+@mixin button() {
+  display: inline-block;
+  padding: $button-padding;
+  margin-right: $button-margin;
+  margin-bottom: $button-margin;
+  border: $button-border-width solid transparent;
+  border-radius: 0;
+  color: $button-text-color;
+  background-color: $button-color;
+  font-size: $button-font-size;
+  font-weight: bold;
+  text-align: center;
+  line-height: $button-line-height;
+  letter-spacing: $button-letter-spacing;
+  vertical-align: middle;
+  text-decoration: none;
+  overflow: hidden;
+  transition: background-color .25s, color .25s, border-color .25s;
+  &:hover {
+    background-color: $button-color-hover;
+    color: $button-text-color-hover; 
+    cursor: pointer;
+  }
+  &:active {
+    @if($button-has-scale-on-active){
+      transform: scale(.95);
+    }
+    outline: none;
+  }
+}

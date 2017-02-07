@@ -1,0 +1,12 @@
+// ------------
+// MIXINS.
+// REM CALC
+// ------------
+// [!]DEPENDENCIES:
+// functions.remcalc.scss
+// ------------
+
+@mixin remCalc($propname, $size) {
+  #{$propname}: $size;
+  #{$propname}: calculateRem($size);
+}

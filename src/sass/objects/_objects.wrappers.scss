@@ -1,0 +1,14 @@
+// ------------
+// OBJECTS.
+// WRAPPERS
+// ------------
+
+.wrapper {
+  @include center();
+  padding: 0 20px;
+}
+
+.wrapper--small {
+  @include center(800px);
+  padding: 0 20px;
+}

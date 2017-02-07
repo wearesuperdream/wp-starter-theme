@@ -1,0 +1,38 @@
+// ------------
+// OBJECTS.
+// DROPDOWNS
+// ------------
+
+.dropdown,
+%dropdown {
+  position: relative;
+  ul {
+    position: absolute;
+    display: none;
+    left: 0;
+    margin-left: 0;
+    width: 200px;
+    background: #fff;
+    z-index: $zindex-1;
+  }
+  li {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin-bottom: 0;
+    line-height: 1;
+    a {
+      text-decoration: none;
+    }
+    &:hover > ul {
+      display: block;
+      position: absolute;
+      left: 100%;
+      top: 0;
+    }
+  }
+  &:hover > ul {
+    position: absolute;
+    display: block;
+  }
+}

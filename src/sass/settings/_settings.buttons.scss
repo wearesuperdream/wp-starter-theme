@@ -1,0 +1,65 @@
+// ------------
+// SETTINGS.
+// BUTTONS
+// ------------
+
+$button-color: $base-text-color !default;
+$button-color-hover: $grey !default;
+$button-font-size: 14px !default;
+$button-text-color: white !default;
+$button-text-color-hover: $base-text-color !default;
+
+$button-padding: .85em 1.75em;
+$button-margin: 10px;
+$button-centered-margin: 10px;
+
+$button-font-weight: $weight-bold;
+$button-line-height: 1;
+$button-letter-spacing: 1px;
+
+$button-border-width: 3px;
+$button-border-radius: 5px;
+$button-border-radius-rounded: 100px;
+
+$button-disabled-color: $light-grey;
+$button-disabled-text-color: $grey !default;
+
+$button-group-margin: 10px;
+$button-group-spacer: 1px;
+$button-group-border-color: #FFFFFF;
+
+$button-has-scale-on-active: true;
+
+// BUTTON COLORS
+// -------------
+// Below is a Sass list that enables you to create new button styles.
+// The list is utilised in the components.buttons.scss file in a loop.
+// To create a new button style please follow this order to add a new list item:
+// (CLASS NAME, TEXT COLOR, BACKGROUND COLOR);
+// -------------
+
+$button-colors : (
+  (default, $button-text-color, $button-color),  
+  (alert, #FFFFFF, $color-red),  
+  (success, #FFFFFF, $color-shamrok),
+  (attention, #FFFFFF, $color-maize),
+  (neutral, #FFFFFF, $color-cerulean),
+  (teal, #FFFFFF, teal),
+);
+
+// BUTTON SIZES
+// ------------
+// There are a number of different button sizes that you may wish to use.
+// Below is a Sass Map of different sizes that are incorporated as classes.
+// ------------
+// If you require a specific sized button that is not in this list that may
+// only be in one instance then DO NOT add that size to this Sass Map. 
+// This is for generic, commonly used, button sizes.
+// ------------
+
+$button-sizes : (
+  (small, 12px),
+  (default, $button-font-size),  
+  (large, 24px),
+  (extra-large, 36px),
+);

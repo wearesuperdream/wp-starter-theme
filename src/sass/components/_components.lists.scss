@@ -1,0 +1,95 @@
+// ------------
+// COMPONENTS.
+// LISTS
+// ------------
+
+.list--divided {
+  @extend %list--unstyled;
+  li {
+    border-bottom: 1px solid $light-grey;
+  }
+  &.is-padded li {
+    padding-top: $list-cell-padding;
+    padding-bottom: $list-cell-padding;
+  }
+}
+
+.list--celled {
+  list-style: none;
+  margin-left: 0;
+  border: 1px solid $light-grey;
+  li {
+    padding: $list-cell-padding;
+    &:not(:last-child) {
+      border-bottom: 1px solid $light-grey;
+    }
+  }
+}
+
+.list--stripped {
+  list-style: none;
+  margin-left: 0;
+  li {
+    padding: 10px;
+    &:nth-child(odd) {
+      background-color: $list-stripped-color;
+      color: $list-stripped-text-color;
+    }
+  }
+}
+
+// LIST HORIZONTAL 
+// DIVIDE STYLING
+// --------------
+
+.list--horizontal.list--divided li {
+  position: relative;
+  padding-right: 10px;
+  margin-right: 10px;
+  border-bottom: none;
+  &:last-child:after {
+    display: none;
+  }
+}
+
+// LIST HORIZONTAL 
+// DIVIDE STYLING OPTIONS
+// --------------
+
+.list--piped li:after {
+  position: absolute;
+  top: 0;
+  right: -2.5px;
+  width: 2px;
+  height: 100%;
+  background: $list-divider-color;
+  content: '';
+}
+
+.list--slashed li:after {
+  transform: rotate(15deg);
+  position: absolute;
+  top: 0;
+  right: -2.5px;
+  width: 2px;
+  height: 100%;
+  background: $list-divider-color;
+  content: '';
+}
+
+.list--pointed li:after {
+  position: absolute;
+  top: 42%;
+  right: -5px;
+  height: 5px;
+  width: 5px;
+  border-radius: 10px;
+  background: $list-divider-color;
+  content: '';
+}
+
+.list__title {
+  font-size: 90%;
+  text-transform: uppercase;
+  font-weight: $weight-bold;
+}

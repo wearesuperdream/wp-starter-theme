@@ -1,0 +1,481 @@
+// ------------
+// COMPONENTS.
+// NAVIGATIONS
+// ------------
+// [!]DEPENDENCIES:
+// _settings.navigations.scss
+// _components.lists.scss
+// Font Awesome - https://fortawesome.github.io/Font-Awesome/
+// jQuery & scripts.js (responsive interaction)
+// ------------
+
+
+// - Nav
+// - Nav Dropdowns
+// - Responsive solution
+
+// Nav wrapper styling
+// ------------
+// The styling below is intended for the <nav class="nav"> tag which 
+// contains your main navigation.
+// ------------
+.nav {
+  position: relative;
+  float: left;
+  width: 100%;
+  background-color: $nav-background-color;
+  @if ($nav-margin-top) {
+    margin-top: $nav-margin-top;
+  }  
+  @if ($nav-margin-bottom) {
+    margin-bottom: $nav-margin-bottom;
+  }
+  // Remove margin from the bottom of all elements contained within the .nav element.
+  & * {
+    margin-bottom: 0;
+  }
+}
+
+// Nav - Direct <ul> tag descendant styling
+// ------------
+.nav > ul {
+  @extend %list--horizontal;
+  float: left;
+  width: 100%;
+  clear: none;
+  @if ($nav-has-border) {
+    border-color: $nav-border-color;
+    border-width: $nav-border-width;
+    border-style: $nav-border-style;
+  }
+  @include respond-to($nav-stack-point) {
+    display: none;
+    border: none;
+  }
+}
+
+// Nav - Align right
+.nav--align-right > ul {
+  float: right;
+  width: auto;
+  @if($nav-items-have-borders) {
+    li a{
+      border-right: none !important;
+      border-left-color: $nav-border-color;
+      border-left-width: $nav-border-width;
+      border-left-style: $nav-border-style;
+    }
+  }
+  > .dropdown > ul {
+    left: 0;
+  }
+  @include respond-to($nav-stack-point) {
+    float: left;
+    width: 100%;
+  }
+}
+
+.nav--no-background {
+  background-color: transparent !important;
+  & > ul li:first-child a,
+  & > ul li:last-child a {
+    border-left: none;
+  }
+}
+
+.nav.nav--links {
+  background-color: transparent;
+  > ul li a,
+  .nav__text {
+    background-color: transparent;
+    border: none;
+  }
+  > ul li a {
+    color: $nav-links-color;
+    &:hover {
+      color: $nav-links-color-hover;
+      background-color: transparent;
+    }
+  }
+  ul li > ul {
+    left: 0;
+  }  
+  ul .dropdown li:hover > ul {
+    left: 100%;
+  }
+}
+
+// Nav - <li> tags styling
+// ------------
+.nav ul li {
+  float: left;
+  display: block;
+  margin-bottom: 0;
+  @include respond-to($nav-stack-point) {
+    width: 100%;
+    border-right: 0;
+    @if ($nav-has-border) {
+      border-top-color: $nav-border-color;
+      border-top-width: $nav-border-width;
+      border-top-style: $nav-border-style;
+    }
+  }
+}
+
+.nav ul li:hover a {
+  color: $nav-item-text-color-hover;
+  background-color: $nav-item-background-color-hover;
+}
+
+// Nav - <a> tags styling 
+// ------------
+// EXAMPLE:
+// ------------
+// <nav class="">
+//  <ul>
+//    <li>
+//      <a href="">TARGET</a>
+//    </li>
+//    <li class="dropdown">
+//      <a href="">TARGET</a>
+//      <ul>
+//        <li>
+//          <a href="">TARGET</a>
+//        </li>
+//      </ul>
+//    </li>
+//  </ul>
+// </nav>
+// ------------
+.nav ul li a, {
+  display: block;
+  width: 100%;
+  padding: $nav-item-padding;
+  font-size: $nav-item-font-size;
+  text-decoration: none;
+  line-height: 1;
+  color: $nav-item-text-color;
+  background-color: $nav-item-background-color;
+  transition: .25s;
+
+  // Amend font weight based on true/false variable
+  // ------------
+  @if($nav-item-semi-bold) {
+    font-weight: $weight-semi-bold;
+  }
+
+  // Amend text transform based on true/false variable
+  // ------------
+  @if($nav-item-uppercase) {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  // Amend text transform based on true/false variable
+  // ------------
+  @if($nav-items-have-borders) {
+    border-right-color: $nav-border-color;
+    border-right-width: $nav-border-width;
+    border-right-style: $nav-border-style;
+  }
+
+  @include respond-to($nav-stack-point) {
+    border-right: none !important;
+    border-bottom-color: $nav-border-color;
+    border-bottom-width: $nav-border-width;
+    border-bottom-style: $nav-border-style;
+    border-left: none !important;
+    @if($nav-item-padding != '20px') {
+      padding: 20px;
+    }
+  }
+}
+
+.nav__text {
+  float: left;
+  display: block;
+  padding: $nav-item-padding;
+  font-size: $nav-item-font-size;
+  text-decoration: none;
+  line-height: 1;
+  color: $nav-item-text-color;
+  background-color: $nav-item-background-color;
+  transition: .25s;
+
+  // Amend text transform based on true/false variable
+  // ------------
+  @if($nav-item-uppercase) {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  @include respond-to($nav-stack-point) {
+    width: 100%;
+    border-bottom-color: $nav-border-color;
+    border-bottom-width: $nav-border-width;
+    border-bottom-style: $nav-border-style;
+    @if($nav-item-padding != '20px') {
+      padding: 20px;
+    }
+  }
+}
+
+// DROPDOWN STYLING
+// ------------
+
+// Styling of <a> tags that are direct decendants of the .dropdown elements.
+// ------------
+// EXAMPLE:
+// ------------
+// <nav class="">
+//  <ul>
+//    <li>
+//      <a href="">NOT TARGET</a>
+//    </li>
+//    <li class="dropdown">
+//      <a href="">TARGET</a>
+//      <ul>
+//        <li>
+//          <a href="">NOT TARGET</a>
+//        </li>
+//      </ul>
+//    </li>
+//  </ul>
+// </nav>
+// ------------
+
+.nav > ul .dropdown > ul {
+  @include respond-to($nav-stack-point) {
+    position: relative;
+    display: none;
+    width: 100%;
+    float: left;
+    left: 0;
+    border: none;
+  }
+}
+
+.nav .dropdown > ul li:hover, 
+.nav .dropdown > ul li:hover > a {
+  color: $nav-dropdown-item-text-color-hover;
+  background-color: $nav-dropdown-item-background-color-hover;
+}
+
+.nav .dropdown > ul li a {
+  background-color: $nav-dropdown-item-background-color;
+  color: $nav-dropdown-item-text-color;
+  border-color: $nav-dropdown-border-color;
+  font-size: $nav-dropdown-item-font-size;
+  font-weight: $weight-normal;
+  @if($nav-dropdown-item-semi-bold) {
+    font-weight: $weight-semi-bold;
+  }
+}
+
+.nav .dropdown > a {
+  position: relative;
+  padding-right: ($nav-item-padding * 2) + 10px;
+
+  // Add icon after the <a> tag to indicate that there is a dropdown
+  // -------------
+  &::after {
+    position: absolute;
+    right: $nav-item-padding;
+    top: $nav-item-padding;
+    font-family: 'fontawesome';
+    transition: .25s;
+    content: '\f0d7';
+    @include respond-to($nav-stack-point) {
+      display: none;
+    }
+  }
+}
+
+
+// (.nav ul li ul li:hover > ul)
+.nav .dropdown li:hover a::after {
+  transform: rotate(-90deg);
+}
+
+.nav ul li > ul {
+  @if ($nav-dropdown-fade-in) {
+    animation: fade-in-dropdown $nav-dropdown-fade-in-time;
+  }
+  @if($nav-items-have-borders) {
+    left: -#{$nav-border-width};
+    border-color: $nav-border-color;
+    border-width: $nav-border-width;
+    border-style: $nav-border-style;
+  }
+  @if ($nav-items-have-borders) {
+    li a {
+      border-right: none;
+    }
+  }
+  li:not(:last-child) a {
+    @if ($nav-items-have-borders) {
+      border-bottom: $nav-dropdown-border-color;
+      border-bottom-width: $nav-border-width;
+      border-bottom-style: $nav-border-style;
+    }
+  }
+  @include respond-to($nav-stack-point) {
+    border-bottom-width: $nav-item-toggle-active-seperator-width !important;
+    border-bottom-color: $nav-item-toggle-active-seperator-color !important;
+    border-bottom-style: solid !important;
+  }
+}
+
+.nav .dropdown li:hover > ul {
+  @if($nav-items-have-borders) {
+    top: -#{$nav-border-width};
+  }
+  @include respond-to($nav-stack-point) {
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+  }
+}
+
+.nav .dropdown--mega-menu {
+  position: static;
+  ul {
+    left: 0;
+    width: 100%;
+  }
+}
+
+// Nav - Responsive Styling
+// ------------
+
+.nav-toggle {
+  display: none;
+  background-color: $nav-toggle-background;
+  color: $nav-toggle-color;
+  font-weight: $weight-semi-bold;
+  text-align: left;
+  text-decoration: none;
+  padding: $nav-toggle-padding;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $nav-toggle-color;
+    background-color: $nav-toggle-background-hover;
+  }
+  @include respond-to($nav-stack-point) {
+    display: block;
+  }
+}
+
+/* uncss:ignore */
+.dropdown--active,
+.dropdown--active > a {
+  color: $nav-dropdown-item-text-color-hover !important;
+  background-color: $nav-dropdown-item-background-color-hover !important;
+}
+
+/* uncss:ignore */
+.dropdown--active > ul li{
+  background-color: $light-grey;
+}
+
+/* uncss:ignore */
+.dropdown--active > .nav-item__toggle i {
+  transform: rotate(-180deg);
+}
+
+/* uncss:ignore */
+.dropdown .dropdown li a {
+  @include respond-to($nav-stack-point) {
+    padding-left: $nav-dropdown-item-padding * 2;
+  }
+}
+
+.nav-toggle__icon {
+  position: relative;
+  &::before {
+    position: absolute;
+    top: -10px;
+  }
+}
+
+.nav-toggle__icon {
+  position: relative;
+  float: right;
+  margin-top: 7px;
+}
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+  position: absolute;
+  left: 0;
+  content: '';
+}
+
+.nav-toggle__icon::before {
+  top: -7px;
+}
+
+.nav-toggle__icon::after {
+  bottom: -7px;
+}
+
+.nav-toggle__icon,
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+  height: 2px;
+  width: 20px;
+  background-color: $nav-toggle-icon-color;
+  border-radius: 10px;
+  transition: .25s;
+}
+
+/* uncss:ignore */
+.nav-toggle--active .nav-toggle__icon {
+  background-color: transparent;
+  &::before,
+  &::after {
+    transform-origin: 50% 50%;
+    top: 0;
+    content: '';
+  }  
+  &::before {
+    top: 0;
+    transform: rotate(135deg);
+    content: '';
+  }  
+  &::after {
+    top: 0;
+    transform: rotate(-135deg);
+    content: '';
+  }
+}
+
+/* uncss:ignore */
+.nav-item__toggle {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  display: none;
+  padding: $nav-item-toggle-padding;
+  color: $nav-item-toggle-color;
+  border: 1px solid $nav-item-toggle-border-color;
+  background-color: $nav-item-toggle-background;
+  line-height: 1;
+  i {
+    transition: .25s;
+  }
+  &:hover {
+    color: $nav-item-toggle-color;
+    background-color: $nav-item-toggle-background-hover;
+    cursor: pointer;
+  }
+  @include respond-to($nav-stack-point) {
+    display: block;
+  }
+}
+
+@keyframes fade-in-dropdown {
+  from { opacity: 0;}
+  to { opacity: 1;}
+}

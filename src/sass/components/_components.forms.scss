@@ -1,0 +1,201 @@
+// ------------
+// COMPONENTS.
+// FORMS
+// ------------
+// [!]DEPENDENCIES:
+// _settings.forms.scss
+// _settings.buttons.scss ($button-colors)
+// _base.forms.scss
+// Font Awesome - https://fortawesome.github.io/Font-Awesome/
+// ------------
+
+
+// Checkboxes and Radio
+// ------------
+.form__checkbox input[type="checkbox"],
+.form__radio input[type="radio"] {
+  position: absolute;
+  left: -150%;
+  & + label {
+    padding-left: 20px;
+    position: relative;
+    &:before,
+    &:after {
+      position: absolute;
+      left: 0; 
+      font-family: 'FontAwesome';
+    }
+  }
+}
+
+.form__checkbox {
+  input[type="checkbox"] + label:before {
+    color: $form-checkbox-icon;
+    content: $form-checkbox-icon;
+  }   
+  input[type="checkbox"]:checked + label:before {
+    display: none;
+  }  
+  input[type="checkbox"]:checked + label:after {
+    color: $form-checkbox-active-icon;
+    content: $form-checkbox-active-icon;
+  }  
+}
+
+.form__radio {
+  input[type="radio"] + label:before {
+    color: $form-radio-icon;
+    content: $form-radio-icon;
+  }   
+  input[type="radio"]:checked + label:before {
+    display: none;
+  }  
+  input[type="radio"]:checked + label:after {
+    color: $form-radio-active-icon;
+    content: $form-radio-active-icon;
+  }  
+}
+
+// Inline Checkboxes and Radio 
+
+.form__checkbox--inline input[type="checkbox"] + label,
+.form__radio--inline input[type="radio"] + label {
+  display: inline-block;
+  margin-right: $form-element-spacer;
+  @include respond-to($breakpoint-tiny) {
+    display: block;
+    margin-right: 0;
+  }
+}
+
+// Form Layouts
+// ------------
+
+.form {
+  float: left;
+  width: 100%;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.form__block--left-half {
+  float: left;
+  width: 50%;
+  padding-right: 1.5%;
+  @include respond-to($breakpoint-small) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.form__block--right-half {
+  float: right;
+  width: 50%;
+  padding-left: 1.5%;
+  @include respond-to($breakpoint-small) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.form__block--one-third {
+  width: (100% / 3);
+  &-left {
+    float: left;
+    padding-right: 2%;
+  } 
+  &-right {
+    float: right;
+    padding-left: 2%;
+  }
+  &-center {
+    float: left;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+  @include respond-to($breakpoint-small) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.form__block--two-thirds {
+  float: left;
+  width: (100% / 3) * 2;
+  padding-right: 1.5%;
+  @include respond-to($breakpoint-small) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.form__block--clear {
+  clear: both;
+}
+
+// Form validation messages
+// ------------
+
+.form__block--error,
+.gfield_error {
+  border-color: $form-validation-color;
+}
+
+.form__block--contains-required label,
+.gfield_contains_required label {
+  position: relative;
+  padding-left: 10px;
+  &::before {
+    position: absolute;
+    left: 0;
+    color: $form-validation-color;
+    content: '*';
+  }
+}
+
+.form__validation-error,
+.validation_error {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-bottom: $form-validation-margin-bottom;
+  padding: $form-validation-message-padding ($form-validation-message-padding * $form-validation-line-height);
+  color: $form-validation-text-color;
+  line-height: $form-validation-line-height;
+  background: $form-validation-color;
+}
+
+.form__block--has-error,
+.gfield_error {
+  input,
+  input[type=file], 
+  input[type=number], 
+  input[type=text], 
+  textarea {
+    border-color: $form-validation-color;
+    margin-bottom: 0;
+    @if ($form-element-border-radius != 0) {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+.form__validation-message,
+.validation_message {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-bottom: $form-validation-margin-bottom;
+  padding: $form-validation-message-padding ($form-validation-message-padding * $form-validation-line-height);
+  color: $form-validation-text-color;
+  line-height: $form-validation-line-height;
+  @if ($form-element-border-radius != 0) {
+    border-bottom-right-radius: $form-element-border-radius;
+    border-bottom-left-radius: $form-element-border-radius;
+  }
+  background: $form-validation-color;
+}

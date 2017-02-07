@@ -1,0 +1,62 @@
+// ------------ 
+// PATTERNS.
+// ONE COLUMN
+// LAYOUTS
+// ------------
+// One Column Layout
+// ------------
+
+// One Column Layout
+// ------------
+.one-column {
+  float: left;
+  width: 100%;
+  & > .column {
+    @include col(1/1);
+    margin-bottom: 20px;
+  }
+}
+
+// One Column Layout - Half
+// ------------
+.one-column--half {
+  float: left;
+  width: 100%;
+  & > .column {
+    @include col(1/2, $offset: 1/4);
+    margin-bottom: 20px;
+  }
+}
+
+// One Column Layout - Third
+// ------------
+.one-column--third {
+  float: left;
+  width: 100%;
+  & > .column {
+    @include col(1/3, $offset: 1/3);
+    margin-bottom: 20px;
+  }
+}
+
+// One Column Layout - Two Thirds
+// ------------
+.one-column--two-thirds {
+  float: left;
+  width: 100%;
+  & > .column {
+    @include col(2/3, $offset: 1/6);
+    margin-bottom: 20px;
+  }
+}
+
+// One Column Layout - Three Quarters
+// ------------
+.one-column--three-quarters {
+  float: left;
+  width: 100%;
+  & > .column {
+    @include col(3/4, $offset: 1/8);
+    margin-bottom: 20px;
+  }
+}

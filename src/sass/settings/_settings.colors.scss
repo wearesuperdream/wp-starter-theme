@@ -1,0 +1,32 @@
+// ------------
+// SETTINGS.
+// COLORS
+// ------------
+
+
+// Default Colors
+// ----------------------------------------------------
+// These are some simple base colors that I have set to 
+// help get things going but can easily be changed.
+// ----------------------------------------------------
+
+$light-grey: #F6F6F6;
+$grey: #E5E5E5;
+$dark-grey: #999999;
+
+$color-outer-space: #2D383A;
+$color-cerulean: #02A4D3;
+$color-radical-red: #FF355E;
+$color-red: #ED0A3F;
+$color-shamrok: #33CC99;
+$color-maize: #F2C649;
+
+$base-text-color: $color-outer-space;
+$base-text-color--dull: mix(#FFFFFF, $base-text-color, 30%);
+$base-background-color: #FFFFFF;
+$link-color: $color-cerulean;
+$link-color-hover: mix(#000000, $link-color, 30%);
+$border-color: $grey;
+$pre-background-color: $light-grey;
+$pre-text-color: $base-text-color;
+$highlighting-color: #FFF9B7;

@@ -1,0 +1,49 @@
+// ------------
+// SETTINGS.
+// FORMS
+// ------------ 
+
+$form-element-font-size: $base-font-size;
+$form-element-spacer: 15px;
+$form-element-border-width: 1px;
+$form-element-border-radius: 5px;
+$form-element-focus-color: $color-cerulean;
+$form-element-placeholder-color: $grey;
+
+// Label Styling
+$form-label-margin-bottom: 5px;
+$form-label-font-size: 12px;
+$form-label-color: $base-text-color;
+$form-label-letter-spacing: 1px;
+$form-label-line-height: 1;
+$form-label-font-weight: $weight-bold;
+$form-label-uppercase: true;
+
+// Input & Textarea Styling
+$form-input-padding: 10px;
+$form-input-line-height: 1;
+$form-input-background-color: #FFFFFF;
+$form-textarea-min-height: 150px;
+
+// Select Styling
+$form-select-background-color: $form-input-background-color; 
+$form-select-height: $form-element-font-size + ($form-input-padding * 2);
+
+// Checkbox Styling
+$form-checkbox-icon: '\f096';
+$form-checkbox-active-icon: '\f14a';
+$form-checkbox-color: $base-text-color;
+$form-checkbox-active-color: $color-shamrok;
+
+// Radio Styling
+$form-radio-icon: '\f10c';
+$form-radio-active-icon: '\f192';
+$form-radio-color: $base-text-color;
+$form-radio-active-color: $color-shamrok;
+
+// Validation
+$form-validation-color: $color-radical-red;
+$form-validation-text-color: #FFFFFF; // Used for validation messages. Should contrast with $form-validation-color.
+$form-validation-line-height: $base-line-height;
+$form-validation-message-padding: 10px;
+$form-validation-margin-bottom: 20px;

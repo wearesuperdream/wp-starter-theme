@@ -1,0 +1,94 @@
+// ------------
+// COMPONENTS.
+// BUTTON GROUP
+// ------------
+// [!]DEPENDENCIES:
+// _settings.buttons.scss
+// ------------
+
+.button-group {
+  float: left;
+  clear: both;
+  width: 100%;
+  margin-bottom: $button-group-margin;
+  .button {
+    float: left;
+    margin: 0;
+    &:not(:last-child) {
+      margin-right: $button-group-spacer;
+    }
+  }
+}
+
+// BUTTON GROUP STYLES
+
+.button-group--block {
+  display: table;
+  table-layout: fixed;
+  .button {
+    display: table-cell;
+    float: none;
+    &:not(:last-child) {
+      border-right: 1px solid $button-group-border-color;
+    }
+  }
+}
+
+
+.button-group--smooth {
+  .button:first-child {
+    border-top-left-radius: $button-border-radius;
+    border-bottom-left-radius: $button-border-radius;
+  }
+  .button:last-child {
+    border-top-right-radius: $button-border-radius;
+    border-bottom-right-radius: $button-border-radius;
+  }
+}
+.button-group--rounded {
+  .button:first-child {
+    border-top-left-radius: $button-border-radius-rounded;
+    border-bottom-left-radius: $button-border-radius-rounded;
+  }
+  .button:last-child {
+    border-top-right-radius: $button-border-radius-rounded;
+    border-bottom-right-radius: $button-border-radius-rounded;
+  }
+}
+
+.button-group.button-group--stacked {
+  .button,
+  .button:last-child {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-bottom: 1px;
+    border-right: none;
+  }
+  .button-group--smooth .button,
+  .button-group--rounded .button {
+    border-radius: none;
+  }
+}
+
+.button-group.button-group--stacked-on-small {
+  @include respond-to($breakpoint-small) {
+    display: block;
+    float: left;
+    .button,
+    .button:last-child {
+      display: block;
+      float: left;
+      width: 100%;
+      margin-bottom: 1px;
+      border: none;
+    }
+    .button-group--smooth,
+    .button-group--rounded {
+      .button:first-child,
+      .button:last-child{
+        border-radius: none;
+      }
+    }
+  }
+}

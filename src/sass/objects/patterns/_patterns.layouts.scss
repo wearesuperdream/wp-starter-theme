@@ -1,0 +1,18 @@
+// ------------
+// PATTERNS.
+// LAYOUTS
+// ------------
+
+.pattern-box {
+  float: left;
+  width: 100%;
+  min-height: 250px;
+  border: 2px dotted $grey;
+}
+
+.tiled.bunched {
+  margin-bottom: 20px; 
+  & > * {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,99 @@
+// ------------
+// BASE.
+// FORMS
+// ------------
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: $form-element-spacer;
+  outline: none;
+  border: $form-element-border-width solid $border-color;
+  &:placeholder{
+    color: $form-element-placeholder-color;
+  }
+  &:focus {
+    border-color: $form-element-focus-color;
+  }
+}
+
+label, 
+legend {
+  display: block;
+  margin-bottom: $form-element-spacer / 2;
+  cursor: pointer;
+  font-weight: $form-label-font-weight;
+  letter-spacing: $form-label-letter-spacing;
+  line-height: $form-label-line-height;
+  @if($form-label-uppercase) {
+    text-transform: uppercase;
+  }
+  @include remCalc(font-size, $form-label-font-size);
+}
+
+fieldset {
+  float: left;
+  width: 100%;
+  margin-bottom: $form-element-spacer - $form-label-margin-bottom;
+}
+
+
+input[type=email],
+input[type=file],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=number],
+textarea {
+  padding: $form-input-padding;
+  border-radius: $form-element-border-radius;
+  color: $base-text-color;
+  background: none;
+  -webkit-appearance: none; // Removes default browser behaviour for Safari
+  -moz-appearance: none; // Removes default browser behaviour for Firefox
+  @include remCalc(font-size, $form-element-font-size);
+}
+
+input[type=file]:hover {
+  cursor: pointer;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: $form-textarea-min-height;
+  vertical-align: top;
+}
+
+button, 
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"] {
+  @include button;
+  width: auto;
+  -webkit-appearance: none; // Removes default browser behaviour for Safari
+  -moz-appearance: none; // Removes default browser behaviour for Firefox
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  float: left;
+  width: auto;
+  margin-top: -1px;
+  margin-right: $form-element-spacer;
+  margin-bottom: 0;
+  border: none;
+}
+
+select {
+  width: 100%;
+  cursor: pointer;
+  height: $form-select-height;
+  border: 1px solid $border-color;
+  vertical-align: middle;
+  background-color: $form-select-background-color;
+  @include remCalc(font-size, $form-element-font-size);
+}

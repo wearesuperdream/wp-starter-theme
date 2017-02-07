@@ -1,0 +1,28 @@
+// ------------
+// BASE.
+// LISTS
+// ------------
+
+ul,
+ol {
+  margin-top: $list-margin-top;
+  margin-bottom: $list-margin-bottom;
+  margin-left: $list-margin-left;
+  list-style-position: outside;
+  clear: left;
+  li {
+    line-height: $list-item-line-height;
+  }
+  ul, 
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}

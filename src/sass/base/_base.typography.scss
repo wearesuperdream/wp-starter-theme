@@ -1,0 +1,151 @@
+//------------
+// BASE.
+// TYPOGRAPHY
+// ------------ 
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5,
+h6 {
+  margin-bottom: 10px;
+  font-weight: $weight-bold;
+  line-height: $header-line-height;
+}
+
+h1 {
+  @include remCalc(font-size, $h1);
+}
+
+h2 {
+  @include remCalc(font-size, $h2);
+}
+
+h3 {
+  @include remCalc(font-size, $h3);
+}
+
+h4 {
+  @include remCalc(font-size, $h4);
+}
+
+h5 {
+  @include remCalc(font-size, $h5);
+}
+
+h6 {
+  @include remCalc(font-size, $h6);
+}
+
+p {
+  margin-bottom: 10px;
+  line-height: $base-line-height;
+}
+
+small, 
+.small-print {
+  @include remCalc(font-size, 12px);
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  color: $link-color;
+  text-decoration: underline;
+  vertical-align: baseline;
+  background: transparent;
+
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
+sup, 
+sub {
+  position: relative;
+  line-height: 0;
+  @include remCalc(font-size, 10px);
+}
+
+sub {
+  @include remCalc(bottom, -3px);
+}
+
+sup {
+  @include remCalc(top, -5px);
+}
+
+del {
+  text-decoration: line-through;
+  color: $base-text-color--dull;
+}
+
+u, 
+ins {
+  text-decoration: underline;
+}
+
+blockquote {
+  display: block;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-left: 1px solid $border-color;
+  line-height: 1.4;
+  @include remCalc(font-size, $blockquote-size);
+
+  small {
+    display: block;
+    margin-top: 10px;
+    color: #bbb;
+    font-style: normal;
+    @include remCalc(font-size, 12px);
+  }
+}
+
+q {
+  quotes: "'" "'";
+
+  &:before {
+    content: open-quotes;
+  }
+
+  &:after {
+    content: close-quote;
+  }
+}
+
+cite {
+  font-weight: $weight-bold;
+  font-style: italic;
+}
+
+abbr {
+  text-transform: uppercase;
+}
+
+mark {
+  background: $highlighting-color;
+}
+
+pre {
+  display: block;
+  float: left;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: $pre-background-color;
+  white-space: pre-wrap;
+  overflow: scroll;
+}
+
+hr {
+  display: block;
+  float: left;
+  width: 100%;
+  height: $horizontal-line-thickness;
+  margin-top: $base-font-size;
+  margin-bottom: $base-font-size;
+  background: $horizontal-line-color;
+  border: none;
+}

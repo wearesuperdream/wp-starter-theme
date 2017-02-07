@@ -1,0 +1,90 @@
+// ------------
+// SETTINGS.
+// NAVIGATION
+// ------------ 
+
+// Nav styling on .nav element
+// ----------
+$nav-background-color: $light-grey;
+$nav-margin-bottom: 50px;
+$nav-margin-top: 40px;
+
+// The stack point option below dictates when the media query 
+// for the responsive navigation takes hold.
+$nav-stack-point: 1000px;
+
+// Nav items within .nav element styling options
+// ----------
+$nav-item-font-size: $base-font-size;
+$nav-item-semi-bold: true;
+$nav-item-uppercase: false;
+$nav-item-padding: 15px;
+$nav-item-background-color: $nav-background-color;
+$nav-item-background-color-hover: darken($nav-item-background-color, 5%);
+$nav-item-text-color: $color-outer-space;
+$nav-item-text-color-hover: $nav-item-text-color;
+
+// Nav items borders styling options
+$nav-has-border: false;
+$nav-items-have-borders: true;
+$nav-border-color: $nav-item-background-color-hover;
+$nav-border-width: 1px;
+$nav-border-style: solid;
+
+// Nav links items (for the styling of a navigation that is assigned the .nav--links class)
+$nav-links-color: $color-cerulean;
+$nav-links-color-hover: darken($nav-links-color, 5%);
+
+// Nav dropdown menus styling options
+// ------------
+$nav-dropdown-item-font-size: $base-font-size;
+$nav-dropdown-item-semi-bold: false;
+$nav-dropdown-item-uppercase: false;
+$nav-dropdown-item-padding: 15px;
+$nav-dropdown-item-background-color: darken($nav-item-background-color, 6%);
+$nav-dropdown-item-background-color-hover: darken($nav-dropdown-item-background-color, 2%);
+$nav-dropdown-item-text-color: $nav-item-text-color;
+$nav-dropdown-item-text-color-hover: $nav-item-text-color;
+
+// Nav dropdown animation fade in
+// ------------
+$nav-dropdown-fade-in: true;
+$nav-dropdown-fade-in-time: .3s;
+
+// Nav dropdown menus border styling options
+// ------------
+$nav-dropdown-border: true;
+$nav-dropdown-has-border: true;
+$nav-dropdown-items-have-borders: true;
+$nav-dropdown-border-color: $nav-dropdown-item-background-color-hover;
+$nav-dropdown-border-width: 1px;
+$nav-dropdown-border-style: solid;
+
+// Nav toggle styling options
+// ------------
+// The settings below will provide you with the capability 
+// of changing the asthetics of the toggle that is presented 
+// to the users to toggle the visibility of the navigation
+// after the $nav-stack-point breakpoint.
+// ------------
+$nav-toggle-background: $color-radical-red;
+$nav-toggle-background-hover: darken($nav-toggle-background, 5%);
+$nav-toggle-color: #FFFFFF;
+$nav-toggle-icon-color: #FFFFFF;
+$nav-toggle-padding: 20px;
+
+// Nav toggle items styling options
+// -------------
+// The settings below will provide you with the capability 
+// of changing the asthetics of the menu items toggle that 
+// are presented to the users when the .nav-toggle is active.
+// ------------
+$nav-item-toggle-color: #FFFFFF;
+$nav-item-toggle-icon-color: $nav-toggle-color;
+$nav-item-toggle-background: $dark-grey;
+$nav-item-toggle-background-hover: $base-text-color;
+$nav-item-toggle-border-color: transparent;
+$nav-item-toggle-padding: 19.5px 18px;
+$nav-item-toggle-active-seperator-color: $nav-toggle-background;
+$nav-item-toggle-active-seperator-width: 5px;
+

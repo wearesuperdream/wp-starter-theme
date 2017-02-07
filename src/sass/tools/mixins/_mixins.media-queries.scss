@@ -1,0 +1,46 @@
+// ------------
+// MIXINS.
+// MEDIA QUERIES
+// ------------
+// [!]DEPENDENCIES:
+// settings.breakpoints.scss
+// ------------
+
+@mixin respond-to($media) {
+    @if $media == tiny {
+        @media only screen 
+        and (max-width: $breakpoint-tiny)
+        { @content; }
+    }
+    @if $media == small-screen {
+        @media only screen  
+        and (max-width: $breakpoint-small - 1)
+        { @content; }
+    }
+    @if $media == medium-screen {
+        @media only screen 
+        and (max-width: $breakpoint-medium - 1)
+        { @content; }
+    }
+    @if $media == large-screen {
+        @media only screen 
+        and (min-width: $breakpoint-large)
+        { @content; }
+    }
+    @if $media == $media {
+        @media only screen 
+        and (max-width: $media)
+        { @content; }
+    }
+    @if $media == retina {
+        @media 
+        only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min--moz-device-pixel-ratio: 2),
+        only screen and (-moz-device-pixel-ratio: 2),
+        only screen and (-o-min-device-pixel-ratio: 2/1),
+        only screen and (min-device-pixel-ratio: 2),
+        only screen and (min-resolution: 192dpi),
+        only screen and (min-resolution: 2dppx) 
+        { @content; }
+    }
+}

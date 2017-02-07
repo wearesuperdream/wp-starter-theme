@@ -1,0 +1,164 @@
+// ------------
+// COMPONENTS.
+// BUTTONS
+// ------------
+// [!]DEPENDENCIES:
+// _settings.buttons.scss
+// _mixins.buttons.scss
+// Font Awesome - https://fortawesome.github.io/Font-Awesome/
+// ------------
+
+.button {
+  @include button;
+}
+
+.button.button--disabled{
+  background: $button-disabled-color;
+  color: $button-disabled-text-color;
+  &:hover {
+    background: $button-disabled-color;
+    color: $button-disabled-text-color;
+    cursor: no-drop;
+  }
+}
+
+// BUTTON STYLING
+// --------------
+
+.button--bordered {
+  border-color: $button-color;
+  border-width: $button-border-width;
+  border-style: solid;
+  background: transparent;
+  color: $base-text-color;
+}
+
+.button--smooth {
+  border-radius: $button-border-radius;
+}
+
+.button--rounded {
+  border-radius: $button-border-radius-rounded;
+}
+
+.button--block {
+  display: block;
+  margin-right: 0;
+}
+
+.button--bold {
+  font-weight: bold;
+}
+
+.button--loud {
+  text-transform: uppercase;
+}
+
+// BUTTON LAYOUT
+// ------------
+
+.button--centered{
+  text-align: center;
+  display: block;
+  margin-bottom: $button-centered-margin;
+  .button{
+    float: none;
+    margin: 0 auto;
+  }
+}
+
+// BUTTONS WITH ICONS
+// ------------
+
+// BUTTON COLORS
+// ------------
+// The loop below utilises the list of values assigned to the $button-colors Sass Map 
+// in _settings.buttons.scss.
+// ------------
+@each $color in $button-colors {
+  $button-class-name: nth($color, 1);
+  $button-text-color: nth($color, 2);
+  $button-color: nth($color, 3);
+  $button-color-hover: darken($button-color, 10%);
+  $button-color-active: darken($button-color, 15%);
+
+  // Styling of specific bordered buttons
+  // ------------
+  // [USAGE EXAMPLE]
+  // The example below outlines the generic usage of the class created below.
+  // 
+  // <a class="button button--alert" href="">Button</a>
+  // 
+  // ------------
+  .button--#{$button-class-name} {
+    color: $button-text-color;
+    background-color: $button-color;
+    &:hover {
+      color: $button-text-color;
+      background-color: $button-color-hover;
+    }
+    &:active {
+      background-color: $button-color-hover;
+    }
+
+    // Styling of specific bordered buttons
+    // ------------
+    // [USAGE EXAMPLE]
+    // The example below outlines the generic usage of the class created below.
+    // 
+    // <a class="button button--alert button--bordered" href="">Button</a>
+    // 
+    // ------------
+    &.button--bordered {
+      color: $button-color;
+      border-color: $button-color;
+      background: none;
+      border-style: solid;
+      border-width: $button-border-width;
+      &:hover {
+        color: $button-color-hover;
+        border-color: $button-color-hover;
+      }
+    } 
+
+    // Styling of specific link buttons
+    // ------------
+    // [USAGE EXAMPLE]
+    // The example below outlines the generic usage of the class created below.
+    // 
+    // <a class="button button--alert button--link" href="">Button</a>
+    // 
+    // ------------
+    &.button--link {
+      color: $button-color;
+      border: none;
+      background: none;
+      border-width: $button-border-width;
+      border-style: solid;
+      border-color: transparent;
+      &:hover {
+        color: $button-color-hover;
+        text-decoration: underline;
+      }
+    }
+  }
+} // END OF BUTTON COLORS LOOP
+
+// BUTTON SIZES
+// ------------
+@each $size in $button-sizes {
+  $button-class-name: nth($size, 1);
+  $button-font-size: nth($size, 2);
+  @if($button-class-name != 'default') {
+    .button--#{$button-class-name} {
+      @include remCalc(font-size, $button-font-size);
+    }
+  }
+} // END OF BUTTON SIZES LOOP
+
+// POTENTIAL IMPLEMENTATION
+// ------------
+// http://codepen.io/Craigtut/pen/dIfzv 
+// or 
+// http://codepen.io/KrisOlszewski/pen/Dnktj
+

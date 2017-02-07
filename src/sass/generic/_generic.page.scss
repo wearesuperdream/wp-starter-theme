@@ -1,0 +1,14 @@
+// ------------
+// GENERIC.
+// PAGE
+// ------------
+
+html,
+body {
+  height: 100%;
+  font-family: $sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: $base-text-color;
+  background: $base-background-color;
+  @include remCalc(font-size, $base-font-size);
+}
