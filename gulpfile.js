@@ -15,9 +15,8 @@ var jshint = require('gulp-jshint'),
     browserSync = require('browser-sync').create(),
     uglify = require('gulp-uglify'),
     notify = require('gulp-notify'),
-
-// Run Gulp Stats
-require('gulp-stats')(gulp);
+    imagemin = require('gulp-imagemin'),
+    stats = require('gulp-stats')(gulp);
 
 // Browser Sync
 gulp.task('serve', ['sass'], function(){
@@ -64,6 +63,12 @@ gulp.task('scripts', function() {
     .pipe(notify({ message: 'Script task complete' }));
 });
 
+//Optimise Images
+gulp.task('images', () =>
+  gulp.src('src/images/*')
+      .pipe(imagemin())
+      .pipe(gulp.dest('dist/img'))
+);
 
 // Watch Files For Changes
 gulp.task('watch', function() {
@@ -73,4 +78,4 @@ gulp.task('watch', function() {
 
 
 // Default Task
-gulp.task('default', ['serve', 'lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['serve', 'images', 'lint', 'sass', 'scripts', 'watch']);
