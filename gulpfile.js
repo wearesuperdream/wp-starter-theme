@@ -1,12 +1,10 @@
-// Include gulp
-var gulp = require('gulp'); 
-
 // Set site URL to be called in tasks
 var siteUrl = 'http://FOLDER-NAME.test';
 var themeName = 'THEME-NAME';
 
-// Include all required plugins
-var jshint = require('gulp-jshint'),
+// Include gulp and all required plugins
+var gulp = require('gulp'),
+    jshint = require('gulp-jshint'),
     sass = require('gulp-sass'),
     cssnano = require('gulp-cssnano'),
     concat = require('gulp-concat'),
@@ -14,10 +12,9 @@ var jshint = require('gulp-jshint'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
     uglify = require('gulp-uglify'),
-    notify = require('gulp-notify');
-
-// Run Gulp Stats
-require('gulp-stats')(gulp);
+    notify = require('gulp-notify'),
+    imagemin = require('gulp-imagemin'),
+    stats = require('gulp-stats')(gulp);
 
 // Browser Sync
 gulp.task('serve', ['sass'], function(){
@@ -61,6 +58,12 @@ gulp.task('scripts', function() {
     .pipe(notify({ message: 'Script task complete' }));
 });
 
+//Optimise Images
+gulp.task('images', () =>
+  gulp.src(sitePath + 'src/images/*')
+      .pipe(imagemin())
+      .pipe(gulp.dest(sitePath + 'dist/img'))
+);
 
 // Watch Files For Changes
 gulp.task('watch', function() {
@@ -70,4 +73,4 @@ gulp.task('watch', function() {
 
 
 // Default Task
-gulp.task('default', ['serve', 'lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['serve', 'images', 'lint', 'sass', 'scripts', 'watch']);
