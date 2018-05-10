@@ -2,19 +2,19 @@
 var gulp = require('gulp'); 
 
 // Set site URL to be called in tasks
-var siteUrl = 'http://superdream.dev/superdream-boilerplate';
+var siteUrl = 'http://FOLDER-NAME.test';
+var themeName = 'THEME-NAME';
 
 // Include all required plugins
 var jshint = require('gulp-jshint'),
     sass = require('gulp-sass'),
     cssnano = require('gulp-cssnano'),
-    uncss = require('gulp-uncss');
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
     uglify = require('gulp-uglify'),
-    notify = require('gulp-notify'),
+    notify = require('gulp-notify');
 
 // Run Gulp Stats
 require('gulp-stats')(gulp);
@@ -28,38 +28,35 @@ gulp.task('serve', ['sass'], function(){
 
 // Lint Task
 gulp.task('lint', function() {
-  return gulp.src('src/scripts/*.js')
+  return gulp.src('wp-content/themes/'+ themeName +'/assets/src/scripts/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass
 gulp.task('sass', function() {
-  return gulp.src('src/sass/**/*.scss')
+	return gulp.src('wp-content/themes/' + themeName +'/assets/src/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9'],
       cascade: false
     }))
-    .pipe(gulp.dest('dist/css'))
-    .pipe(uncss({
-      html: [siteUrl, '*.html']
-    }))
+		.pipe(gulp.dest('wp-content/themes/' + themeName +'/assets/dist/css'))
     .pipe(rename('style.min.css'))
     .pipe(cssnano())
-    .pipe(gulp.dest('dist/css/min'))
+		.pipe(gulp.dest('wp-content/themes/' + themeName +'/assets/dist/css/min'))
     .pipe(browserSync.stream())
     .pipe(notify({ message: 'Styles task complete' }));
 });
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-  return gulp.src('src/scripts/*.js')
+	return gulp.src('wp-content/themes/' + themeName +'/assets/src/scripts/*.js')
     .pipe(concat('scripts.js'))
-    .pipe(gulp.dest('dist/scripts'))
+		.pipe(gulp.dest('wp-content/themes/' + themeName +'/assets/dist/scripts'))
     .pipe(uglify())
     .pipe(rename('scripts.min.js'))
-    .pipe(gulp.dest('dist/scripts/min'))
+		.pipe(gulp.dest('wp-content/themes/' + themeName +'/assets/dist/scripts/min'))
     .pipe(browserSync.stream())
     .pipe(notify({ message: 'Script task complete' }));
 });
@@ -67,8 +64,8 @@ gulp.task('scripts', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-  gulp.watch('src/sass/**/*.scss', ['sass']);
-  gulp.watch('src/scripts/**/*.js', ['lint', 'scripts']);
+	gulp.watch('wp-content/themes/' + themeName +'/assets/src/sass/**/*.scss', ['sass']);
+	gulp.watch('wp-content/themes/' + themeName +'/assets/src/scripts/**/*.js', ['lint', 'scripts']);
 });
 
 
