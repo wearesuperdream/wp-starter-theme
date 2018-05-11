@@ -1,0 +1,37 @@
+{
+	"name": "superdream-default-theme",
+	"description": "Composer file for SD default theme",
+	"authors": [
+		{
+			"name": "Sam Dean",
+			"email": "sam.dean@superdream.co.uk"
+		}
+	],
+	"type": "project",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
+	"require": {
+		"php": ">=5.4",
+		"composer/installers": "1.*",
+		"johnpbloch/wordpress-core-installer": "^1.0",
+		"johnpbloch/wordpress-core": "*",
+		"wpackagist-plugin/wordpress-seo": "*",
+		"wpackagist-plugin/amazon-s3-and-cloudfront": "*",
+		"wpackagist-plugin/ewww-image-optimizer": "*",
+		"wpackagist-plugin/amazon-web-services": "*",
+		"wpackagist-plugin/advanced-custom-fields": "*"
+	},
+	"extra": {
+		"wordpress-install-dir": "wp"
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"cp wp/index.php ./index.php",
+			"sed -i '' \"s/\\/wp-blog-header/\\/wp\\/wp-blog-header/g\" index.php"
+		]
+	}
+}
